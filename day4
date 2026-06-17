@@ -1,0 +1,121 @@
+question 1:
+program to generate fibonnaci series
+  #include <stdio.h>
+
+int main() {
+    int n, i;
+    int first = 0, second = 1, next;
+
+    printf("Enter number of terms: ");
+    scanf("%d", &n);
+
+    printf("Fibonacci series: ");
+
+    for (i = 0; i < n; i++) {
+        if (i <= 1)
+            next = i;
+        else {
+            next = first + second;
+            first = second;
+            second = next;
+        }
+        printf("%d ", next);
+    }
+
+    return 0;
+} 
+
+question 2:
+program to find nth fibonacci term
+  #include <stdio.h>
+
+int main() {
+    int n, i;
+    int a = 0, b = 1, next;
+
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+
+    if (n == 0) {
+        printf("Nth Fibonacci term = 0\n");
+    } else if (n == 1) {
+        printf("Nth Fibonacci term = 1\n");
+    } else {
+        for (i = 2; i <= n; i++) {
+            next = a + b;
+            a = b;
+            b = next;
+        }
+        printf("Nth Fibonacci term = %d\n", b);
+    }
+
+    return 0;
+}
+question 3:
+program to check armstrong number
+  #include <stdio.h>
+
+int main() {
+    int num, originalNum, remainder, result = 0;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    originalNum = num;
+
+    while (num != 0) {
+        remainder = num % 10;                 // extract digit
+        result += remainder * remainder * remainder;  // cube of digit
+        num /= 10;
+    }
+
+    if (result == originalNum)
+        printf("%d is an Armstrong number.\n", originalNum);
+    else
+        printf("%d is not an Armstrong number.\n", originalNum);
+
+    return 0;
+}
+question 4:
+program to print armstrong number in a range
+  #include <stdio.h>
+#include <math.h>
+
+int main() {
+    int start, end, i, temp, remainder, n, sum, digits;
+
+    printf("Enter starting number: ");
+    scanf("%d", &start);
+
+    printf("Enter ending number: ");
+    scanf("%d", &end);
+
+    printf("Armstrong numbers between %d and %d are:\n", start, end);
+
+    for (i = start; i <= end; i++) {
+        temp = i;
+        sum = 0;
+        digits = 0;
+
+        // count number of digits
+        n = temp;
+        while (n != 0) {
+            n /= 10;
+            digits++;
+        }
+
+        // calculate Armstrong sum
+        n = temp;
+        while (n != 0) {
+            remainder = n % 10;
+            sum += pow(remainder, digits);
+            n /= 10;
+        }
+
+        if (sum == i) {
+            printf("%d ", i);
+        }
+    }
+
+    return 0;
+}
