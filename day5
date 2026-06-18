@@ -1,0 +1,102 @@
+question 1:
+program to check perfect number
+  #include <stdio.h>
+
+int main() {
+    int n, sum = 0;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    for (int i = 1; i < n; i++) {
+        if (n % i == 0) {
+            sum += i;
+        }
+    }
+
+    if (sum == n)
+        printf("%d is a Perfect Number.\n", n);
+    else
+        printf("%d is not a Perfect Number.\n", n);
+
+    return 0;
+} 
+question 2:
+program to chack strong number
+  #include <stdio.h>
+
+int main() {
+    int num, temp, rem, sum = 0, fact;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    temp = num;
+
+    while (temp > 0) {
+        rem = temp % 10;
+        fact = 1;
+
+        for (int i = 1; i <= rem; i++) {
+            fact *= i;
+        }
+
+        sum += fact;
+        temp /= 10;
+    }
+
+    if (sum == num)
+        printf("%d is a Strong Number.\n", num);
+    else
+        printf("%d is not a Strong Number.\n", num);
+
+    return 0;
+}
+ question 3:
+program to print factors of a number
+  #include <stdio.h>
+
+int main() {
+    int n;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    printf("Factors of %d are: ", n);
+
+    for (int i = 1; i <= n; i++) {
+        if (n % i == 0) {
+            printf("%d ", i);
+        }
+    }
+
+    return 0;
+}
+question 4:
+program to find largest prime factor
+  #include <stdio.h>
+
+int main() {
+    long long n, largestFactor = 0;
+
+    printf("Enter a number: ");
+    scanf("%lld", &n);
+
+    while (n % 2 == 0) {
+        largestFactor = 2;
+        n /= 2;
+    }
+
+    for (long long i = 3; i * i <= n; i += 2) {
+        while (n % i == 0) {
+            largestFactor = i;
+            n /= i;
+        }
+    }
+    if (n > 2)
+        largestFactor = n;
+
+    printf("Largest Prime Factor = %lld\n", largestFactor);
+
+    return 0;
+}
