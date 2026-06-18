@@ -1,1 +1,87 @@
+question 1:
+program to recursive factorial
+#include <stdio.h>
 
+// Recursive function to calculate factorial
+int factorial(int n) {
+    if (n == 0 || n == 1)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+
+int main() {
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    printf("Factorial of %d = %d\n", num, factorial(num));
+
+    return 0;
+}
+question 2:
+program to recurssive fibonacci 
+#include <stdio.h>
+
+// Recursive function to find nth Fibonacci number
+int fibonacci(int n) {
+    if (n == 0)
+        return 0;
+    if (n == 1)
+        return 1;
+
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int main() {
+    int n;
+
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+
+    printf("Fibonacci number at position %d = %d\n", n, fibonacci(n));
+
+    return 0;
+}
+question 3:
+program to recurssive sum of digits
+#include <stdio.h>
+
+// Recursive function to calculate sum of digits
+int sumOfDigits(int n) {
+    if (n == 0)
+        return 0;
+    return (n % 10) + sumOfDigits(n / 10);
+}
+
+int main() {
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    printf("Sum of digits = %d\n", sumOfDigits(num));
+
+    return 0;
+}
+question 4:
+program to recursive reverse number
+#include <stdio.h>
+
+int reverse(int n, int rev) {
+    if (n == 0)
+        return rev;
+    return reverse(n / 10, rev * 10 + n % 10);
+}
+
+int main() {
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    printf("Reversed number = %d\n", reverse(num, 0));
+
+    return 0;
+}
