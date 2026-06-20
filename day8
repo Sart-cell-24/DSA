@@ -1,0 +1,61 @@
+question 1:
+program to print half pyramid pattern
+  #include <stdio.h>
+
+int main() {
+    int rows, i, j;
+
+    printf("Enter number of rows: ");
+    scanf("%d", &rows);
+
+    for (i = 1; i <= rows; i++) {
+        for (j = 1; j <= i; j++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+question 2:
+pattern:
+1
+12
+123
+1234
+12345
+  #include <stdio.h>
+
+int main() {
+    int n = 5;
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= i; j++) {
+            printf("%d", j);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+question 3:
+pattern:
+A
+AB
+ABC
+ABCD
+ABCDE
+ #include <stdio.h>
+
+int main() {
+    int n = 5;
+
+    for (int i = 1; i <= n; i++) {
+        for (char ch = 'A'; ch < 'A' + i; ch++) {
+            printf("%c", ch);
+        }
+        printf("\n");
+    }
+
+    return 0;
+} 
