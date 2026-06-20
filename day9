@@ -1,0 +1,99 @@
+question1:
+program to print reverse star pattern
+* * * * *
+* * * *
+* * *
+* *
+*
+  #include <stdio.h>
+
+int main() {
+    int rows, i, j;
+
+    printf("Enter number of rows: ");
+    scanf("%d", &rows);
+
+    for (i = rows; i >= 1; i--) {
+        for (j = 1; j <= i; j++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
+
+    return 0;
+} 
+question 2:
+program to print reverse number triangle
+1 2 3 4 5
+1 2 3 4
+1 2 3
+1 2
+1
+#include <stdio.h>
+
+int main() {
+    int rows, i, j;
+
+    printf("Enter number of rows: ");
+    scanf("%d", &rows);
+
+    for (i = rows; i >= 1; i--) {
+        for (j = 1; j <= i; j++) {
+            printf("%d ", j);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+question 3:
+program to print repeated character pattern
+A
+BB
+CCC
+DDDD
+EEEEE
+  #include <stdio.h>
+
+int main() {
+    int n = 5;
+
+    for (int i = 1; i <= n; i++) {
+        char ch = 'A' + i - 1;
+
+        for (int j = 1; j <= i; j++) {
+            printf("%c", ch);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
+question 4:
+program to print hollow square pattern
+* * * * *
+*       *
+*       *
+*       *
+* * * * *
+  #include <stdio.h>
+
+int main() {
+    int n, i, j;
+
+    printf("Enter the size of the square: ");
+    scanf("%d", &n);
+
+    for (i = 1; i <= n; i++) {
+        for (j = 1; j <= n; j++) {
+            if (i == 1 || i == n || j == 1 || j == n)
+                printf("* ");
+            else
+                printf("  ");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
