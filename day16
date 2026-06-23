@@ -1,0 +1,113 @@
+question1:
+program to find missing number in array
+  #include <stdio.h>
+
+int findMissing(int arr[], int n) {
+    int totalSum = (n * (n + 1)) / 2;
+    int arraySum = 0;
+
+    for (int i = 0; i < n - 1; i++) {
+        arraySum += arr[i];
+    }
+
+    return totalSum - arraySum;
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 5};
+    int n = 5;  // Numbers should be from 1 to 5
+
+    printf("Missing number: %d\n", findMissing(arr, n));
+
+    return 0;
+}
+  question2:
+  program to find maximum frequency element
+    #include <stdio.h>
+
+int main() {
+    int arr[] = {1, 2, 2, 3, 4, 2, 3, 3, 3};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    int maxCount = 0, maxElement;
+
+    for (int i = 0; i < n; i++) {
+        int count = 1;
+
+        for (int j = i + 1; j < n; j++) {
+            if (arr[i] == arr[j]) {
+                count++;
+            }
+        }
+
+        if (count > maxCount) {
+            maxCount = count;
+            maxElement = arr[i];
+        }
+    }
+
+    printf("Element with maximum frequency: %d\n", maxElement);
+    printf("Frequency: %d\n", maxCount);
+
+    return 0;
+}
+  question3:
+program to find pair with given sum
+  #include <stdio.h>
+
+int main() {
+    int arr[] = {2, 7, 11, 15, 3, 6};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int target = 9;
+    int found = 0;
+
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (arr[i] + arr[j] == target) {
+                printf("Pair found: %d and %d\n", arr[i], arr[j]);
+                found = 1;
+                break;
+            }
+        }
+        if (found)
+            break;
+    }
+
+    if (!found)
+        printf("No pair found.\n");
+
+    return 0;
+}
+  question4:
+  program to remove duplicates from array
+    #include <stdio.h>
+
+int removeDuplicates(int arr[], int n) {
+    if (n == 0 || n == 1)
+        return n;
+
+    int j = 0;
+
+    for (int i = 1; i < n; i++) {
+        if (arr[i] != arr[j]) {
+            j++;
+            arr[j] = arr[i];
+        }
+    }
+
+    return j + 1; // New size
+}
+
+int main() {
+    int arr[] = {1, 1, 2, 2, 3, 4, 4, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    n = removeDuplicates(arr, n);
+
+    printf("Array after removing duplicates: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
