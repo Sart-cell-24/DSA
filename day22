@@ -1,0 +1,111 @@
+question1:
+program to check palindrome string
+  #include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100];
+    int i, len, flag = 1;
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+
+    // remove newline if present
+    len = strlen(str);
+    if (str[len - 1] == '\n') {
+        str[len - 1] = '\0';
+        len--;
+    }
+
+    // check palindrome
+    for (i = 0; i < len / 2; i++) {
+        if (str[i] != str[len - i - 1]) {
+            flag = 0;
+            break;
+        }
+    }
+
+    if (flag)
+        printf("String is a palindrome\n");
+    else
+        printf("String is not a palindrome\n");
+
+    return 0;
+}
+question2:
+program to count words in a sentence
+  #include <stdio.h>
+
+int main() {
+    char str[200];
+    int i, words = 0;
+
+    printf("Enter a sentence: ");
+    fgets(str, sizeof(str), stdin);
+
+    for (i = 0; str[i] != '\0'; i++) {
+        // If current character is not space and next character is space or end
+        if (str[i] != ' ' && str[i] != '\n') {
+            if (str[i + 1] == ' ' || str[i + 1] == '\n' || str[i + 1] == '\0') {
+                words++;
+            }
+        }
+    }
+
+    printf("Total words = %d\n", words);
+
+    return 0;
+} 
+question3:
+program to character frequency
+  #include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[200];
+    int freq[256] = {0};
+    int i;
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+
+    // Calculate frequency
+    for (i = 0; str[i] != '\0'; i++) {
+        freq[(unsigned char)str[i]]++;
+    }
+
+    printf("Character frequencies:\n");
+    for (i = 0; i < 256; i++) {
+        if (freq[i] > 0 && i != '\n') {
+            printf("'%c' = %d\n", i, freq[i]);
+        }
+    }
+
+    return 0;
+}
+question4:
+program to remove spaces from string
+  #include <stdio.h>
+
+int main() {
+    char str[200];
+    int i, j = 0;
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+
+    // Remove spaces in-place
+    for (i = 0; str[i] != '\0'; i++) {
+        if (str[i] != ' ' && str[i] != '\n') {
+            str[j] = str[i];
+            j++;
+        }
+    }
+
+    str[j] = '\0';
+
+    printf("String without spaces: %s\n", str);
+
+    return 0;
+}
+  
