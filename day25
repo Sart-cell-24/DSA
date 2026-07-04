@@ -1,0 +1,151 @@
+question1:
+program to merge two sorted array
+  #include <stdio.h>
+
+int main() {
+    int a[100], b[100], c[200];
+    int n1, n2, i = 0, j = 0, k = 0;
+
+    printf("Enter size of first array: ");
+    scanf("%d", &n1);
+
+    printf("Enter elements of first sorted array: ");
+    for (i = 0; i < n1; i++)
+        scanf("%d", &a[i]);
+
+    printf("Enter size of second array: ");
+    scanf("%d", &n2);
+
+    printf("Enter elements of second sorted array: ");
+    for (i = 0; i < n2; i++)
+        scanf("%d", &b[i]);
+
+    i = j = k = 0;
+
+    // Merge the arrays
+    while (i < n1 && j < n2) {
+        if (a[i] <= b[j])
+            c[k++] = a[i++];
+        else
+            c[k++] = b[j++];
+    }
+
+    // Copy remaining elements of first array
+    while (i < n1)
+        c[k++] = a[i++];
+
+    // Copy remaining elements of second array
+    while (j < n2)
+        c[k++] = b[j++];
+
+    printf("Merged sorted array: ");
+    for (i = 0; i < k; i++)
+        printf("%d ", c[i]);
+
+    printf("\n");
+
+    return 0;
+}
+question2:
+program to find common characters in string
+  #include <stdio.h>
+
+int main() {
+    char str1[100], str2[100];
+    int freq[256] = {0};
+
+    printf("Enter first string: ");
+    scanf("%99s", str1);
+
+    printf("Enter second string: ");
+    scanf("%99s", str2);
+
+    // Mark characters present in the first string
+    for (int i = 0; str1[i] != '\0'; i++) {
+        freq[(unsigned char)str1[i]] = 1;
+    }
+
+    printf("Common characters: ");
+
+    // Print common characters only once
+    for (int i = 0; str2[i] != '\0'; i++) {
+        if (freq[(unsigned char)str2[i]] == 1) {
+            printf("%c ", str2[i]);
+            freq[(unsigned char)str2[i]] = 2; // Prevent duplicate printing
+        }
+    }
+
+    printf("\n");
+
+    return 0;
+}
+question3:
+program to sort names alphabetically
+  #include <stdio.h>
+#include <string.h>
+
+int main() {
+    char names[100][50], temp[50];
+    int n;
+
+    printf("Enter the number of names: ");
+    scanf("%d", &n);
+
+    printf("Enter the names:\n");
+    for (int i = 0; i < n; i++) {
+        scanf("%49s", names[i]);
+    }
+
+    // Sort names alphabetically
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (strcmp(names[i], names[j]) > 0) {
+                strcpy(temp, names[i]);
+                strcpy(names[i], names[j]);
+                strcpy(names[j], temp);
+            }
+        }
+    }
+
+    printf("\nNames in alphabetical order:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%s\n", names[i]);
+    }
+
+    return 0;
+}
+question4:
+program to sort word by length
+  #include <stdio.h>
+#include <string.h>
+
+int main() {
+    char words[100][50], temp[50];
+    int n;
+
+    printf("Enter the number of words: ");
+    scanf("%d", &n);
+
+    printf("Enter the words:\n");
+    for (int i = 0; i < n; i++) {
+        scanf("%49s", words[i]);
+    }
+
+    // Sort words by length
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (strlen(words[i]) > strlen(words[j])) {
+                strcpy(temp, words[i]);
+                strcpy(words[i], words[j]);
+                strcpy(words[j], temp);
+            }
+        }
+    }
+
+    printf("\nWords sorted by length:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%s\n", words[i]);
+    }
+
+    return 0;
+}
